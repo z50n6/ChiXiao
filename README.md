@@ -67,6 +67,8 @@ ChiXiao/
 ```
 
 > **注意**：程序会自动在 `data/`、`config/` 或根目录下查找 `GeoLite2-City.mmdb`。如果缺失该文件，Web 日志分析中的 IP 归属地功能将无法使用。
+>
+> 下载地址；https://github.com/mojolabs-id/GeoLite2-Database
 
 ## 技术栈
 - Frontend: Vue 3, TypeScript, Tailwind CSS
