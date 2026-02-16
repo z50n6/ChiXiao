@@ -1,8 +1,7 @@
 # ChiXiao (赤霄)
 
-<p align="center">
-  <img src="frontend/src/assets/images/logo.png" alt="Logo" width="120" height="120" />
-</p>
+
+
 
 <p align="center">
   <a href="https://wails.io/"><img src="https://img.shields.io/badge/Wails-v2-red.svg" alt="Wails"></a>
@@ -10,68 +9,80 @@
   <a href="https://vuejs.org/"><img src="https://img.shields.io/badge/Vue-3-green.svg" alt="Vue"></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"></a>
 </p>
+
+
 <p align="center">
-  <strong>一款专为安全工程师打造的跨平台本地工具管理平台。</strong>
+  <strong>现代化红队攻防综合平台 | Modern Integrated Security Platform</strong>
 </p>
 
 
+---
 
-### 1. 🛠️ 智能工具箱
-核心工具管理模块，支持任意本地工具的接入与启动。
-- **环境隔离**：自动识别并独立配置 **Java 8/11/17**、**Python 2/3** 运行环境。
-- **快速启动**：一键启动 GUI/CLI 工具，支持自定义启动参数。
-- **分类管理**：支持工具自定义分类、排序与拖拽管理。
-- **智能配置**：
-  - **图标搜索**：添加工具时支持关键词搜索并实时预览图标。
-  - **路径持久化**：**安全工具根路径**等配置直接持久化至 `data.db` 数据库，重启不丢失。
+## 🚀 项目简介
 
-### 2. 🔍 信息收集
-- **空间测绘**：集成 **Fofa**、**Hunter**、**Quake** API 进行资产检索。
-  - **安全存储**：所有 API Key 采用 **AES-GCM** 高强度加密存储。
-- **网址导航**：内置常用安全网站与工具书签。
-- **Map API**：地图 API 测试辅助功能。
+**ChiXiao (赤霄)** 是一款专为红队工程师和渗透测试人员打造的现代化、跨平台安全工具箱。它集成了工具管理、智能研判、资产测绘与攻防辅助等核心功能，旨在解决传统渗透测试中工具分散、环境配置繁琐、协作效率低下等痛点，构建个人专属的“数字化武器库”。
 
-### 3. 🛡️ 应急响应
-- **Web日志分析**：支持 Apache/Nginx 日志分析，提供攻击检测、流量统计与 IP 归属地查询。
-  - **无限容量**：采用 **File-Offset Indexing (文件偏移索引)** 技术，支持 GB 级超大日志文件秒级加载与检索。
-  - **精准识别**：内置 SQL 注入、XSS、RCE、Webshell 等多种攻击特征规则库。
-  - **高性能**：流式读取与多线程处理，内存占用极低。
+## ✨ 核心功能
 
-### 4. ⚔️ 攻防辅助
-- **反弹Shell生成**：可视化生成多种语言（Bash, Python, PHP, Java 等）的反弹 Shell 命令。
-- **社工字典**：基于个人信息生成定制化密码字典。
-- **辅助工具**：
-  - **弱口令查询**：常见服务弱口令快速查询。
-  - **编码转换**：Java Runtime/Bash 编码、URL/Base64 编解码。
-  - **密码生成**：高强度随机密码生成器。
+### 1. 🛠️ 智能工具箱 (Smart Toolbox)
 
-### 5. 🧰 实用工具
-- **CyberChef**：内置本地化 CyberChef，数据处理神器。
-- **集合运算**：文本列表的交集、并集、差集运算。
-- **IP 提取**：从混乱文本中精准提取 IPv4/IPv6 地址。
-- **仓库更新**：支持在线更新工具指纹库与配置。
+- **统一管理**：支持 Nmap, Burp Suite, Metasploit 等任意 GUI/CLI 工具的接入与一键启动。
+- **环境隔离**：自动识别并独立配置 Java (8/11/17)、Python (2/3) 运行环境，彻底告别环境冲突。
+- **极速检索**：内置高性能模糊搜索（FZF算法），毫秒级定位目标工具。
 
-### 6. 📚 知识库
-- **漏洞文库**：本地化漏洞详情查阅
-- **备忘录**：支持 Markdown 的本地笔记功能，自动保存。
-- **指令备忘**：内置红队常用指令、Payload 与 CheatSheet。
+### 2. 🧠 AI 智能研判 (AI Analysis)
 
+- **日志分析**：基于大模型的 Web 日志深度研判，自动识别 SQL 注入、XSS、Webshell 等攻击特征。
+- **Payload 解码**：智能识别并递归解码 Base64, Hex, URL 等多层混淆 Payload。
+- **威胁溯源**：结合 IP 归属地与行为特征，自动生成攻击者画像与处置建议。
+- **多模型支持**：支持 OpenAI、DeepSeek、Local (Ollama) 等多种模型后端。
 
+### 3. 🌐 资产测绘 (Asset Mapping)
 
-## 📂 部署结构
+- **多源集成**：聚合 Fofa, Hunter, Quake 等主流测绘引擎 API。
+- **数据导出**：支持测绘结果的一键检索与导出（CSV/Excel），助力资产梳理。
 
-编译后的程序为单文件绿色版（依赖目录自动生成）：
+### 4. ⚔️ 攻防辅助 (Red Team Utils)
+
+- **反弹 Shell**：可视化生成 Bash, Python, PHP, Java 等多语言反弹 Shell 命令。
+- **编解码工具**：集成 CyberChef 核心功能，支持 URL, Base64, Hash, Encryption 等常见操作。
+- **应急响应**：内置系统进程分析、网络连接监控与文件扫描功能。
+
+---
+
+## 🏗️ 技术架构
+
+- **前端**：Vue 3 + Tailwind CSS (现代化响应式 UI)
+- **后端**：Go (高性能逻辑处理) + Wails v2 (原生跨平台 WebView)
+- **数据存储**：SQLite (本地加密存储，确保数据安全)
+- **性能优化**：
+  - **File-Offset Indexing**：GB 级日志文件秒级加载与检索。
+  - **Native API**：直接调用系统底层 API (Windows syscall) 实现文件交互，移除 PowerShell 依赖，提升稳定性。
+
+---
+
+## � 快速开始
+
+### 运行环境
+
+- Windows 10/11 (x64)
+- macOS / Linux (计划中)
+
+### 部署说明
+
+下载最新 Release 版本，解压即可运行。
 
 ```text
 ChiXiao/
 ├── ChiXiao.exe             # 主程序
 └── data/                   # 数据目录 (首次运行自动生成)
-    ├── data.db             # 核心数据库 (配置、工具、日志等)
-    └── GeoLite2-City.mmdb  # GeoIP 数据库 (需手动下载放入，用于IP归属地)
+    ├── data.db             # 核心数据库
+    └── GeoLite2-City.mmdb  # GeoIP 数据库 (可选)
 ```
 
-> **注意**：`GeoLite2-City.mmdb` 为可选文件，缺失将导致日志分析中的 IP 归属地功能不可用。
-> 下载地址：[GeoLite2-Database](https://github.com/mojolabs-id/GeoLite2-Database)
+> **注意**：部分功能（如 IP 归属地查询）需要 `GeoLite2-City.mmdb` 数据库文件。
 
----
+
+
+
 
