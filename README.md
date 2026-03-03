@@ -1,56 +1,68 @@
 # ChiXiao (赤霄)
 
-
-
-
 <p align="center">
   <a href="https://wails.io/"><img src="https://img.shields.io/badge/Wails-v2-red.svg" alt="Wails"></a>
-  <a href="https://go.dev/"><img src="https://img.shields.io/badge/Go-1.21+-blue.svg" alt="Go"></a>
+  <a href="https://go.dev/"><img src="https://img.shields.io/badge/Go-1.24+-blue.svg" alt="Go"></a>
   <a href="https://vuejs.org/"><img src="https://img.shields.io/badge/Vue-3-green.svg" alt="Vue"></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"></a>
 </p>
-
 
 <p align="center">
   <strong>现代化红队攻防综合平台 | Modern Integrated Security Platform</strong>
 </p>
 
-
 ---
 
-## 🚀 项目简介
+## 项目简介
 
 **ChiXiao (赤霄)** 是一款专为红队工程师和渗透测试人员打造的现代化、跨平台安全工具箱。它集成了工具管理、智能研判、资产测绘与攻防辅助等核心功能，旨在解决传统渗透测试中工具分散、环境配置繁琐、协作效率低下等痛点，构建个人专属的“数字化武器库”。
 
-## ✨ 核心功能
+## 功能模块一览
 
-### 1. 🛠️ 智能工具箱 (Smart Toolbox)
+按左侧导航划分，当前主要模块如下（与你在界面上看到的菜单一一对应）：
 
-- **统一管理**：支持 Nmap, Burp Suite, Metasploit 等任意 GUI/CLI 工具的接入与一键启动。
-- **环境隔离**：自动识别并独立配置 Java (8/11/17)、Python (2/3) 运行环境，彻底告别环境冲突。
-- **极速检索**：内置高性能模糊搜索（FZF算法），毫秒级定位目标工具。
+- **仪表盘**：展示版本信息、更新状态、常用入口和最近操作，作为启动后的默认首页。
+- **工具箱**：统一管理本地 GUI/CLI 工具，支持添加/编辑/分类、使用次数统计与按热度排序，一键启动常用渗透工具。
+- **信息收集**：集成空间测绘、端口扫描、目录扫描、Web 指纹识别、Google Hack 等能力，用于前期资产摸排与面宽收集。
+- **漏洞管理**：围绕 Nuclei 生态提供 **POC 管理**、**扫描任务编排** 与 **请求重发 (Repeater)**，覆盖从 POC 维护到验证复现的完整闭环。
+- **攻防赋能**：包含反弹 Shell 生成器、攻击载荷库、JWT 攻防平台 (JWTAttack)、Java 编码辅助、地图 API 泄露检测、默认密码查询等常用攻防小工具。
+- **备忘录**：用于记录渗透过程中的笔记、任务清单与命令片段，支持分组与搜索。
+- **网址导航**：内置安全相关网站导航，可自定义收藏、编辑与分组，方便日常查阅情报与文档。
+- **应急响应**：提供 Web 日志分析、流量分析 (PCAP)、Windows 系统日志分析 (EVTX)、Webshell 检测与代码审计等能力，支持规则与 AI 结合的研判流程。
+- **辅助工具**：包括漏洞文库、仓库/字典更新、数据对比、CyberChef、IP 与文本处理、随机密码/账号生成等效率工具。
 
-### 2. 🧠 AI 智能研判 (AI Analysis)
+## 核心功能亮点
 
-- **日志分析**：基于大模型的 Web 日志深度研判，自动识别 SQL 注入、XSS、Webshell 等攻击特征。
-- **Payload 解码**：智能识别并递归解码 Base64, Hex, URL 等多层混淆 Payload。
-- **威胁溯源**：结合 IP 归属地与行为特征，自动生成攻击者画像与处置建议。
-- **多模型支持**：支持 OpenAI、DeepSeek、Local (Ollama) 等多种模型后端。
+### 智能工具箱 (Smart Toolbox)
+- **统一入口**：集中管理 Nmap、Burp Suite、sqlmap、浏览器插件等各种外部工具，一键启动。
+- **环境隔离**：支持为不同工具配置独立的 Java / Python / 自定义启动命令，降低环境污染与版本冲突风险。
+- **快速检索**：支持按名称、标签、类别搜索和按使用频次排序，高效定位目标工具。
 
-### 3. 🌐 资产测绘 (Asset Mapping)
+### 漏洞管理与 POC 编排
+- **POC 目录管理**：从本地目录载入 Nuclei POC，解析元数据（名称、标签、严重级别、作者等）并以表格形式展示。
+- **扫描任务中心**：基于选中的 POC 一键发起扫描任务，查看实时进度与历史结果。
+- **请求重发 (Repeater)**：内置类 Burp Repeater 的请求调试面板，支持多标签、多次修改与对比响应，用于手工验证漏洞与调试 POC。
 
-- **多源集成**：聚合 Fofa, Hunter, Quake 等主流测绘引擎 API。
-- **数据导出**：支持测绘结果的一键检索与导出（CSV/Excel），助力资产梳理。
+### 攻防赋能中心 (Red Team Utils)
+- **反弹 Shell 生成器**：根据目标 IP/端口与环境，一键生成 Bash、Python、PowerShell、PHP、Java 等多语言反弹命令。
+- **攻击载荷库**：按“攻击面/漏洞类型/攻击链”组织常见 Payload，支持查看利用步骤与复制命令。
+- **JWT 攻防平台**：集成 JWT 解码与安全分析、攻击向量平台、密钥爆破、Token 编辑器与生成器，覆盖 JWT 场景的从分析到利用。
+- **编码/弱口令工具**：Java 编码辅助、地图 API 泄露检测、默认密码/弱口令查询、密码/字典生成等。
 
-### 4. ⚔️ 攻防辅助 (Red Team Utils)
+### 信息收集与资产测绘 (Recon & Mapping)
+- **多引擎空间测绘**：聚合 Fofa、Hunter、Quake 等 API，统一搜索与导出资产，支持分页浏览与过滤。
+- **端口/目录扫描**：提供端口扫描与目录扫描任务的配置与结果浏览接口，辅助快速摸清暴露面。
+- **指纹识别与 Google Hack**：支持基础 Web 指纹识别和典型 Google Hacking 语句生成。
 
-- **反弹 Shell**：可视化生成 Bash, Python, PHP, Java 等多语言反弹 Shell 命令。
-- **编解码工具**：集成 CyberChef 核心功能，支持 URL, Base64, Hash, Encryption 等常见操作。
-- **应急响应**：内置系统进程分析、网络连接监控与文件扫描功能。
+### 应急响应 & AI 智能研判
+- **Web 日志分析**：支持本地 Web 访问日志导入，结合规则库与大模型进行 SQLi/XSS/Webshell 等攻击识别，并输出处置建议。
+- **PCAP 流量分析**：针对抓包文件做会话重组、协议解析与规则命中，辅助溯源。
+- **系统日志与告警扫描**：对 Windows EVTX 日志进行加载、检索和规则化告警扫描，支持匹配规则与阈值规则两种模式。
+- **规则管理与导入**：支持新增/编辑/启用规则、导入默认规则库以及导入 JSON 规则文件，便于团队协作与经验沉淀。
 
 ---
 
-## 🏗️ 技术架构
+## 技术架构
 
 - **前端**：Vue 3 + Tailwind CSS (现代化响应式 UI)
 - **后端**：Go (高性能逻辑处理) + Wails v2 (原生跨平台 WebView)
@@ -61,15 +73,13 @@
 
 ---
 
-## � 快速开始
+## 快速开始（使用已发布版本）
 
 ### 运行环境
-
 - Windows 10/11 (x64)
 - macOS / Linux (计划中)
 
 ### 部署说明
-
 下载最新 Release 版本，解压即可运行。
 
 ```text
@@ -82,6 +92,14 @@ ChiXiao/
 
 > **注意**：部分功能（如 IP 归属地查询）需要 `GeoLite2-City.mmdb` 数据库文件。
 
+### 全局代理开关说明
+
+- 在窗口顶部右上角，靠近系统监控与设置图标的位置，有一个 **“Proxy 开 / Proxy 关”** 开关按钮。
+- 代理地址在应用设置中配置（例如 `http://127.0.0.1:7890`），开关只控制“是否使用该地址”，**不会清空或修改地址本身**。
+- 当前主要受影响的模块包括：AI 日志研判、空间测绘、仓库更新 等所有通过统一 HTTP 客户端访问外部 API 的功能。
+- 关闭代理时，即使设置中仍保留代理地址，所有请求都会直接出网；若尚未配置地址而强制开启，应用会引导你先进入设置页面填写 Proxy。
+
+---
 
 
 
