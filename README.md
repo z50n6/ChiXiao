@@ -1,4 +1,4 @@
-# ChiXiao (赤霄)
+# ChiXiao（赤霄）
 
 <p align="center">
   <a href="https://wails.io/"><img src="https://img.shields.io/badge/Wails-v2-red.svg" alt="Wails"></a>
@@ -6,198 +6,430 @@
   <a href="https://vuejs.org/"><img src="https://img.shields.io/badge/Vue-3-green.svg" alt="Vue"></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"></a>
 </p>
+
 <p align="center">
-  <strong>现代化红蓝攻防综合平台 | Modern Integrated Security Platform</strong>
+  <strong>现代化红队攻防综合平台 / 本地化安全工具工作台</strong>
 </p>
 
+---
+
+## 1. 项目定位
+
+**ChiXiao（赤霄）** 是一款面向红队工程师、渗透测试人员与安全研究人员的本地桌面平台。
+
+它不是单一工具，而是一个把 **工具管理、信息收集、漏洞验证、攻防辅助、日志分析、应急研判** 聚合到同一界面的安全工作台，核心目标是：
+
+- 把常用安全工具统一纳管，避免"桌面一堆 exe / bat / python 脚本"难维护；
+- 把高频攻防操作整合到一个连续工作流中，减少上下文切换；
+- 把本地分析、规则研判、AI 辅助和结果沉淀放在同一个产品内完成。
+
+如果你想要的是一个 **"个人数字化武器库"**，ChiXiao 就是为这个目标设计的。
 
 ---
 
-## 项目简介
 
-**ChiXiao (赤霄)** 是一款专为红蓝工程师和渗透测试人员打造的现代化、跨平台安全工具箱。它集成了工具管理、智能研判、资产测绘与攻防辅助等核心功能，旨在解决传统渗透测试中工具分散、环境配置繁琐、协作效率低下等痛点，构建个人专属的“数字化武器库”。
 
-## 功能模块一览
+## 2. 导航模块一览
 
-按左侧导航划分，当前主要模块如下（与你在界面上看到的菜单一一对应）：
+左侧导航共 **8 大模块**，覆盖红队工作全流程：
 
-- **仪表盘**：展示版本信息、更新状态、常用入口和最近操作，作为启动后的默认首页。
-- **工具箱**：统一管理本地 GUI/CLI 工具，支持添加/编辑/分类、使用次数统计与按热度排序，一键启动常用渗透工具。
-- **信息收集**：集成空间测绘、端口扫描、目录扫描、Web 指纹识别、Google Hack 等能力，用于前期资产摸排与面宽收集。
-- **漏洞管理**：围绕 Nuclei 生态提供 **POC 管理**、**扫描任务编排** 与 **请求重发 (Repeater)**，覆盖从 POC 维护到验证复现的完整闭环。
-- **攻防赋能**：包含反弹 Shell 生成器、攻击载荷库、JWT 攻防平台 (JWTAttack)、Java 编码辅助、地图 API 泄露检测、默认密码查询等常用攻防小工具。
-- **备忘录**：用于记录渗透过程中的笔记、任务清单与命令片段，支持分组与搜索。
-- **网址导航**：内置安全相关网站导航，可自定义收藏、编辑与分组，方便日常查阅情报与文档。
-- **应急响应**：提供 Web 日志分析、流量分析 (PCAP)、Windows 系统日志分析 (EVTX)、Webshell 检测与代码审计等能力，支持规则与 AI 结合的研判流程。
-- **辅助工具**：包括漏洞文库、仓库/字典更新、数据对比、CyberChef、IP 与文本处理、随机密码/账号生成等效率工具。
-
-## 核心功能亮点
-
-### 智能工具箱 (Smart Toolbox)
-- **统一入口**：集中管理 Nmap、Burp Suite、sqlmap、浏览器插件等各种外部工具，一键启动。
-- **环境隔离**：支持为不同工具配置独立的 Java / Python / 自定义启动命令，降低环境污染与版本冲突风险。
-- **快速检索**：支持按名称、标签、类别搜索和按使用频次排序，高效定位目标工具。
-
-![image-20260303131200306](./imgs/image-20260303131200306.png)
-
-设置工具路径，方便后面fzf模糊搜索
-
-![image-20260303131219332](./imgs/image-20260303131219332.png)
-
-![image-20260303131350410](./imgs/image-20260303131350410.png)
-
-![image-20260303131413925](./imgs/image-20260303131413925.png)
-
-
-
-### 漏洞管理与 POC 编排
-
-- **POC 目录管理**：从本地目录载入 Nuclei POC，解析元数据（名称、标签、严重级别、作者等）并以表格形式展示。
-- **扫描任务中心**：基于选中的 POC 一键发起扫描任务，查看实时进度与历史结果。
-- **请求重发 (Repeater)**：内置类 Burp Repeater 的请求调试面板，支持多标签、多次修改与对比响应，用于手工验证漏洞与调试 POC。
-
-![image-20260303131451061](./imgs/image-20260303131451061.png)
-
-
-
-![image-20260303131517063](./imgs/image-20260303131517063.png)
-
-
-
-![image-20260303131533185](./imgs/image-20260303131533185.png)
-
-扫描以 [【无镜 U .lab】CVE-2025-55182 dify环境 rce](https://vip.bdziyi.com/ulab/) 漏洞环境做演示。
-
-选择一个POC进行扫描
-
-![image-20260303131848396](./imgs/image-20260303131848396.png)
-
-
-
-![image-20260303131917806](./imgs/image-20260303131917806.png)
-
-点击查看可以 查看具体的请求与响应数据包
-
-![image-20260303131942303](./imgs/image-20260303131942303.png)
-
-可以与请求重放功能联动，点击发送至Repeater
-
-![image-20260303132021662](./imgs/image-20260303132021662.png)
-
-
-
-### 攻防赋能中心 (Red Team Utils)
-- **反弹 Shell 生成器**：根据目标 IP/端口与环境，一键生成 Bash、Python、PowerShell、PHP、Java 等多语言反弹命令。
-- **攻击载荷库**：按“攻击面/漏洞类型/攻击链”组织常见 Payload，支持查看利用步骤与复制命令。
-- **JWT 攻防平台**：集成 JWT 解码与安全分析、攻击向量平台、密钥爆破、Token 编辑器与生成器，覆盖 JWT 场景的从分析到利用。
-- **编码/弱口令工具**：Java 编码辅助、地图 API 泄露检测、默认密码/弱口令查询、密码/字典生成等。
-
-![image-20260303131714033](./imgs/image-20260303131714033.png)
-
-![image-20260303131726894](./imgs/image-20260303131726894.png)
-
-
-
-![image-20260303131733997](./imgs/image-20260303131733997.png)
-
-![image-20260303131745751](./imgs/image-20260303131745751.png)
-
-
-
-![image-20260303131754631](./imgs/image-20260303131754631.png)
-
-![image-20260303132132626](./imgs/image-20260303132132626.png)
-
-
-
-![image-20260303132155999](./imgs/image-20260303132155999.png)
-
-
-
-### 信息收集与资产测绘 (Recon & Mapping)
-- **多引擎空间测绘**：聚合 Fofa、Hunter、Quake 等 API，统一搜索与导出资产，支持分页浏览与过滤。
-- **端口/目录扫描**：提供端口扫描与目录扫描任务的配置与结果浏览接口，辅助快速摸清暴露面。
-- **指纹识别与 Google Hack**：支持基础 Web 指纹识别和典型 Google Hacking 语句生成。
-
-![image-20260303132209234](./imgs/image-20260303132209234.png)
-
-![image-20260303132222965](./imgs/image-20260303132222965.png)
-
-
-
-![image-20260303132229331](./imgs/image-20260303132229331.png)
-
-
-
-![image-20260303132631938](./imgs/image-20260303132631938.png)
-
-
-
-指纹识别截图预览
-
-![image-20260303132650552](./imgs/image-20260303132650552.png)
-
-
-
-![image-20260303134308323](./imgs/image-20260303134308323.png)
-
-
-
-### 应急响应 & AI 智能研判
-- **Web 日志分析**：支持本地 Web 访问日志导入，结合规则库与大模型进行 SQLi/XSS/Webshell 等攻击识别，并输出处置建议。
-- **PCAP 流量分析**：针对抓包文件做会话重组、协议解析与规则命中，辅助溯源。
-- **系统日志与告警扫描**：对 Windows EVTX 日志进行加载、检索和规则化告警扫描，支持匹配规则与阈值规则两种模式。
-- **规则管理与导入**：支持新增/编辑/启用规则、导入默认规则库以及导入 JSON 规则文件，便于团队协作与经验沉淀。
-- **WEBSHELL检查**： AI助力
-- **代码审计**：AI助力
-
-![image-20260303133328029](./imgs/image-20260303133328029.png)
-
-
-
-![image-20260303133318500](./imgs/image-20260303133318500.png)
-
-![image-20260303133341666](./imgs/image-20260303133341666.png)
-
-
-
-![image-20260303133348687](./imgs/image-20260303133348687.png)
-
-![image-20260303133238111](./imgs/image-20260303133238111.png)
-
-
-
-![image-20260303133612827](./imgs/image-20260303133612827.png)
+| 模块 | 说明 |
+|---|---|
+| **应用启动器** | 工具目录 + 工具市场 |
+| **信息收集** | 企业信息 / ICP备案 / 网络归属 / 空间测绘 / 目录扫描 / Naabu端口扫描 / HTTP探测 / Subfinder子域名 / JSFinder / Google Hack |
+| **漏洞管理** | POC管理 / Nuclei扫描 / Repeater请求重发 |
+| **攻防赋能** | 反弹Shell / 杀软识别 / 补丁检测 / Java编码 / AK泄露检测 / 口令爆破(16+协议) / Dumpall源码泄漏 |
+| **应急响应** | Web日志 / 流量分析(PCAP) / Windows日志(EVTX) / Webshell检测 / 代码审计 |
+| **网址导航** | 安全站点导航 |
+| **临时笔记** | Markdown草稿，自动保存 |
+| **辅助工具** | 默认密码 / CyberChef(数据处理) / 随机生成 / 备忘录 / 仓库更新 / 设置 |
 
 ---
 
-## 快速开始（使用已发布版本）
+![image-20260601205418023](imgs/image-20260601205418023.png)
 
-### 运行环境
-- Windows 10/11 (x64)
-- macOS / Linux (计划中)
+![image-20260601205459915](imgs/image-20260601205459915.png)
 
-### 部署说明
-下载最新 Release 版本，解压即可运行。
 
-```text
+
+
+
+![image-20260601205430721](imgs/image-20260601205430721.png)
+
+
+
+![image-20260601205253018](imgs/image-20260601205253018.png)
+
+
+
+![image-20260601205312281](imgs/image-20260601205312281.png)
+
+![image-20260601205407511](imgs/image-20260601205407511.png)
+
+![image-20260601205327052](imgs/image-20260601205327052.png)
+
+
+
+![image-20260601205357708](imgs/image-20260601205357708.png)
+
+
+
+
+
+## 3. 核心能力详解
+
+### 3.1 信息收集
+
+| 功能 | 说明 |
+|---|---|
+| **企业信息** | 爱企查工商数据，股东与对外投资查询 |
+| **ICP备案** | 网站 / APP / 小程序 / 快应用备案查询 |
+| **网络归属** | IP归属地、域名RDAP查询 |
+| **空间测绘** | FOFA / Quake / Hunter三大引擎聚合 |
+| **目录扫描** | 字典扫描 + 备份文件探测，支持历史复用 |
+| **Naabu** | 端口发现 + 服务识别 + 结果联动 |
+| **HTTP探测** | 可达性、标题指纹、跳转识别 |
+| **Subfinder** | 被动子域名枚举（基于 subfinder v2.14.0） |
+| **JSFinder** | JS资源采集 + 敏感字段提取 + API风险探测 |
+| **Google Hack** | 搜索引擎语法检索 |
+
+### 3.2 漏洞管理
+
+| 功能 | 说明 |
+|---|---|
+| **漏洞检测** | POC管理 + Nuclei扫描任务编排 |
+| **Repeater** | 请求重发与调试 |
+
+### 3.3 攻防赋能
+
+| 功能 | 说明 |
+|---|---|
+| **反弹Shell** | 多环境反弹Shell命令生成（Linux / Windows / Python / PHP / Java / Perl / Ruby / Go / Powershell / Bash / nc 等） |
+| **杀软识别** | 基于进程列表识别 AV / EDR 产品（Windows Defender / 卡巴斯基 / 麦咖啡 / 赛门铁克 / 火绒 / 360 等） |
+| **补丁检测** | 基于 systeminfo / QFE 文本识别缺失候选补丁 |
+| **Java编码** | Runtime.exec Payload 生成 |
+| **AK泄露检测** | 多平台 AK / Token / Secret 校验（阿里云 / 腾讯云 / 百度云 / AWS / GCP / Azure / Google Maps / 高德 /等 |
+| **口令爆破** | 16+ 协议弱口令（SSH / FTP / MySQL / MSSQL / RDP / Redis / MongoDB / PostgreSQL / SMB / Telnet / VNC / Memcached / Elasticsearch / Kerberos / SMTP / POP3） |
+| **Dumpall** | .DS_Store / .git / .svn 泄漏利用与源代码恢复 |
+
+
+
+
+
+![image-20260601205538758](imgs/image-20260601205538758.png)
+
+
+
+![image-20260601205543745](imgs/image-20260601205543745.png)
+
+
+
+![image-20260601205550218](imgs/image-20260601205550218.png)
+
+
+
+![image-20260601205555189](imgs/image-20260601205555189.png)
+
+
+
+![image-20260601205602493](imgs/image-20260601205602493.png)
+
+### 3.4 应急响应
+
+| 功能 | 说明 |
+|---|---|
+| **Web日志分析** | 攻击规则匹配 + AI辅助研判 + 可疑IP统计 |
+| **流量分析** | PCAP文件解析 + 流量会话 + AI辅助分析 |
+| **Windows日志** | EVTX解析 + 内置告警规则 + 自定义规则 |
+| **Webshell检测** | 静态特征检测 + 动态行为检测 + AI辅助判断 |
+| **代码审计** | 规则扫描 + AI辅助审计 |
+
+### 3.5 数据处理（CyberChef 本地替代）
+
+**数据处理** 是 ChiXiao 的瑞士军刀模块，提供 **100+ 管道式操作**，支持拖拽串联、多步骤连续处理。
+
+#### 编码 / 解码
+
+| 操作 | 说明 |
+|---|---|
+| Base64 / Base32 / Base58 / Base62 / Base85 / Base91 | 各种进制编码 |
+| Hex / Hexdump | 十六进制与可视化Hexdump |
+| Binary / Decimal / Octal | 二/十/八进制互转 |
+| URL Encode/Decode | URL编码 |
+| HTML Entity | HTML实体编码 |
+| Unicode Escape/Unescape | Unicode转义 |
+| Quoted Printable | 邮件编码 |
+| Punycode | 域名国际化编码 |
+| 文本编解码（Text Decode/Encode） | 多种字符集转换 |
+
+#### 哈希 / 校验
+
+| 操作 | 说明 |
+|---|---|
+| MD5 / SHA1 / SHA2-256/384/512 / SHA3-256/512 | 主流哈希 |
+| BLAKE2b / BLAKE2s / BLAKE3 | BLAKE系列 |
+| GOST / Streebog | 俄罗斯哈希标准 |
+| Keccak-256 / Keccak-512 | Ethereum系 |
+| CRC-32 / Adler-32 | 校验和 |
+| HMAC SHA-256 | 消息认证 |
+| NT Hash | Windows NTLM |
+
+#### 加密 / 解密
+
+| 操作 | 说明 |
+|---|---|
+| AES / DES / 3DES / RC4 / ChaCha20 | 对称加密 |
+| XOR / ROT13 / ROT47 | 简单变换 |
+| Blowfish | 对称加密 |
+
+#### 压缩 / 解压
+
+| 操作 | 说明 |
+|---|---|
+| Gzip / Gunzip | GNU压缩 |
+| Zlib Deflate/Inflate | Deflate压缩 |
+| Bzip2 | bzip2压缩 |
+| Raw Deflate/Inflate | 原始Deflate |
+| Tar / Untar | 打包归档 |
+
+#### 文本处理
+
+| 操作 | 说明 |
+|---|---|
+| **Diff（文本对比）** | 字符级/单词级/行级高亮对比，新增绿色/删除红色 |
+| **Pattern Filter（模式过滤）** | 正则/字符串模式，去除/仅保留/替换三种模式 |
+| **Remove special chars（去除特殊字符）** | 可自定义字符集，默认预置常见特殊字符 |
+| 大小写 / _swap case_ / Reverse / Sort / Unique | 基础文本操作 |
+| Find & Replace / Regular expression | 查找替换 |
+| Split / Join with comma / Merge into one line | 行处理 |
+| Add / Remove line numbers | 行号操作 |
+| To Camel / Snake / Kebab case | 命名格式转换 |
+| Drop bytes / Take bytes | 字节截取 |
+| Pad lines / Wrap | 行填充与包裹 |
+
+#### 数据提取
+
+| 操作 | 说明 |
+|---|---|
+| Strings / Lines | 提取字符串/行 |
+| Count occurrences | 计数 |
+| Extract IP / URL / C segment / domain | 字段提取 |
+| IP Format Convert | IP格式转换（点分十进制/十进制/十六进制/八进制） |
+| Append /24 / /16 | CIDR扩展 |
+| Expand CIDR | CIDR展开 |
+
+#### 格式转换
+
+| 操作 | 说明 |
+|---|---|
+| **JSON Beautify / Minify** | JSON美化/压缩 |
+| **XML Beautify / Minify** | XML美化/压缩 |
+| **JavaScript Beautify / Minify** | JS美化/压缩 |
+| To Unix Timestamp / From Unix Timestamp | 时间戳互转 |
+| To Chinese Uppercase | 金额中文大写 |
+| Generate UUID | UUID生成 |
+| Remove / Keep Chinese | 中文过滤 |
+| Remove protocol / Remove port | URL清洗 |
+| Add http:// / Add https:// | URL协议补全 |
+| Decompose URL path | URL路径分解 |
+
+#### 特殊处理
+
+| 操作 | 说明 |
+|---|---|
+| Remove whitespace / Remove null bytes | 空白字符处理 |
+| Swap endianness | 端序转换 |
+
+---
+
+### 3.6 JWT 攻防台
+
+| 功能 | 说明 |
+|---|---|
+| Token 解析 | Header / Payload 自动解析 |
+| 签名验证 | 支持 HS256 / HS384 / HS512 / RS256 / RS384 / RS512 / ES256 / ES384 / ES512 |
+| 密钥测试 | 支持 HMAC 对称密钥与 RSA/ECDSA 非对称密钥 |
+| 常用攻击 | None 算法攻击 / 密钥混淆 / RS/HS 签名切换 |
+
+---
+
+## 4. 产品特点
+
+### 统一入口
+把常用安全工具、扫描能力和辅助页面放到统一桌面壳中，减少工具碎片化。
+
+### 本地优先
+以本地运行、本地数据和本地配置为核心，避免把日常工作流过度依赖浏览器标签页或云端面板。
+
+### 模块化工作流
+从资产摸排、指纹识别、漏洞验证，到流量/日志/代码分析，形成连续闭环。
+
+### 数据处理管道（Pipeline）
+数据处理模块支持拖拽操作串联，多步骤连续执行，每一步结果自动接力到下一步，减少复制粘贴。
+
+### 环境变量统一管理
+支持集中维护 Python、Java、代理、空间测绘密钥与 AI 服务配置，降低切换成本。
+
+### AI 辅助但不绑死 AI
+AI 模型配置可独立维护、切换与测试，适合作为规则研判与分析的辅助能力，而非唯一依赖。
+
+### 单实例运行
+内置单实例锁，防止多开导致端口冲突或数据异常。
+
+### 安全存储
+敏感信息（API Key、Token、Cookie）AES 加密存储，本地 SQLite 数据库持久化。
+
+---
+
+## 5. 快捷键
+
+| 快捷键 | 功能 |
+|---|---|
+| `Ctrl + K` | 打开全局功能搜索（支持别名搜索，如输入"企业查询"直达企业信息页） |
+| `Ctrl + B` | 折叠 / 展开左侧导航 |
+
+---
+
+## 6. 顶部栏与代理说明
+
+### 顶部栏功能
+- 应用品牌与窗口控制
+- 全局代理开关
+- 系统资源监控（CPU / 内存）
+- 主题切换（浅色 / 深色 / 跟随系统）
+- 设置入口
+- 项目仓库入口
+
+### 全局代理
+- 顶部栏中的 **Proxy** 开关只控制"是否启用代理"，不负责编辑地址；
+- 代理地址在"设置 -> 环境变量配置"中维护；
+- 如果未配置代理地址却尝试开启代理，应用会引导你先进入设置填写；
+- 关闭代理时，不会清空地址，只是停止通过代理转发请求。
+
+---
+
+## 7. 技术架构
+
+### 前端
+- Vue 3 + Vite + TypeScript
+- Naive UI（主题单一真源）
+- Pinia 状态管理
+- Monaco Editor（HTTP/YAML编辑）
+- Vditor（Markdown编辑）
+
+### 后端
+- Go 1.24+（无 CGO 纯 Go 依赖）
+- Wails v2（WebView2 原生桌面壳）
+- 现代密码学库（bcmul / aes / chacha20 等）
+
+### 数据层
+- 本地 SQLite（modernc.org/sqlite，纯 Go 无 CGO）
+- AES 加密存储敏感字段
+
+### 外部工具集成
+nuclei / subfinder / naabu / httpx / dirsearch / chromedp 等
+
+### 项目结构
+
+```
 ChiXiao/
-├── ChiXiao.exe             # 主程序
-└── data/                   # 数据目录 (首次运行自动生成)
-    ├── data.db             # 核心数据库
-    └── GeoLite2-City.mmdb  # GeoIP 数据库 (可选)
+├─ frontend/                # Vue 3 前端
+│  ├─ src/
+│  │  ├─ components/      # 通用组件
+│  │  ├─ pages/           # 页面级功能模块（含 Emergency 应急响应子目录）
+│  │  ├─ ui/              # AppShell / TopBar / SideNav 等壳层 UI
+│  │  └─ stores/          # Pinia 状态管理
+├─ backend/                 # Go 服务层
+│  ├─ services/           # Wails 绑定服务（30+ 服务文件，约 34000 行）
+│  ├─ config/             # 配置读写
+│  ├─ models/             # 数据模型
+│  └─ brute_protocols/    # 口令爆破协议实现
+├─ data/                    # 本地运行数据
+├─ main.go                  # Wails 入口
+└─ README.md
 ```
 
-> **注意**：部分功能（如 IP 归属地查询）需要 `GeoLite2-City.mmdb` 数据库文件。
+---
 
-### 全局代理开关说明
+## 8. 快速开始
 
-- 在窗口顶部右上角，靠近系统监控与设置图标的位置，有一个 **“Proxy 开 / Proxy 关”** 开关按钮。
-- 代理地址在应用设置中配置（例如 `http://127.0.0.1:7890`），开关只控制“是否使用该地址”，**不会清空或修改地址本身**。
-- 当前主要受影响的模块包括：AI 日志研判、空间测绘、仓库更新 等所有通过统一 HTTP 客户端访问外部 API 的功能。
-- 关闭代理时，即使设置中仍保留代理地址，所有请求都会直接出网；若尚未配置地址而强制开启，应用会引导你先进入设置页面填写 Proxy。
+### 运行环境
+- Windows 10/11 x64
+- WebView2 运行时（Wails 自动绑定）
+
+### 使用方式
+下载发布版本并解压后即可运行。
+
+```
+ChiXiao/
+├── ChiXiao.exe
+└── data/
+    ├── data.db
+    └── GeoLite2-City.mmdb   （可选，用于 IP 地理位置）
+```
 
 ---
 
+## 9. 开发环境
+
+### 依赖要求
+- Go：1.24+
+- Node.js：18+
+- Wails CLI：`go install github.com/wailsapp/wails/v2/cmd/wails@latest`
 
 
+
+---
+
+## 10. 更新日志
+
+### v2.x 新增功能
+
+- **数据处理（CyberChef 增强版）**
+  - 字符级 Diff 对比（`<ins>`/`<del>` HTML 高亮，绿色新增/红色删除）
+  - 单词级 / 行级 Diff 对比粒度
+  - **Pattern Filter 模式过滤**（正则/字符串 × 去除/仅保留/替换）
+  - **Remove special chars 可自定义字符集**
+  - IP Format Convert 下拉框中文化（点分十进制/十进制/十六进制/八进制）
+  - JSON / XML / JavaScript 美化与压缩（带示例输入自动填充）
+  - 时间日期操作自动填充示例输入
+  - **输出接力按钮**（一键将输出推入输入区）
+  - 左侧分类栏默认折叠
+
+- **左侧导航重构**
+  - 8 大模块统一入口
+  - 别名搜索支持（如输入"企业查询"直达目标页面）
+  - 分类列表 / 收藏区默认折叠
+
+- **JWT 攻防台**
+  - 更名（JWT工具 → JWT攻防台）
+  - 移除使用说明和算法标签，界面更简洁
+
+- **工具箱增强**
+  - 工具市场安装模态框
+  - 批量安装支持
+
+- **口令爆破（Brute Crack）**
+  - 支持 16+ 协议弱口令检测
+  - 协议覆盖：SSH / FTP / MySQL / MSSQL / RDP / Redis / MongoDB / PostgreSQL / SMB / Telnet / VNC / Memcached / Elasticsearch / Kerberos / SMTP / POP3
+
+- **AK 泄露检测（Credential Lab）**
+  - 覆盖阿里云 / 腾讯云 / 百度云 / AWS / GCP / Azure / Google Maps  等 
+
+- **应急响应模块**
+  - Web 日志分析（攻击规则 + AI 辅助研判）
+  - PCAP 流量分析（会话 + 时间线 + AI 辅助）
+  - Windows 日志 EVTX 解析（内置规则 + 自定义规则）
+  - Webshell 检测（静态 + 动态 + AI 辅助）
+  - 代码审计（规则 + AI 辅助）
+
+- **存储与安全**
+  - 从 JSON 迁移到 SQLite
+  - 敏感字段 AES 加密存储
+  - 单实例运行锁
+
+---
+
+## 12. License
+
+MIT
