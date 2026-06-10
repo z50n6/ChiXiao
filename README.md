@@ -27,11 +27,9 @@
 
 ---
 
-
-
 ## 2. 导航模块一览
 
-左侧导航共 **8 大模块**，覆盖红队工作全流程：
+左侧导航共 **7 大模块**，覆盖红队工作全流程：
 
 | 模块 | 说明 |
 |---|---|
@@ -39,40 +37,45 @@
 | **信息收集** | 企业信息 / ICP备案 / 网络归属 / 空间测绘 / 目录扫描 / Naabu端口扫描 / HTTP探测 / Subfinder子域名 / JSFinder / Google Hack |
 | **漏洞管理** | POC管理 / Nuclei扫描 / Repeater请求重发 |
 | **攻防赋能** | 反弹Shell / 杀软识别 / 补丁检测 / Java编码 / AK泄露检测 / 口令爆破(16+协议) / Dumpall源码泄漏 |
-| **应急响应** | Web日志 / 流量分析(PCAP) / Windows日志(EVTX) / Webshell检测 / 代码审计 |
 | **网址导航** | 安全站点导航 |
 | **临时笔记** | Markdown草稿，自动保存 |
 | **辅助工具** | 默认密码 / CyberChef(数据处理) / 随机生成 / 备忘录 / 仓库更新 / 设置 |
 
 ---
 
-![image-20260601205418023](imgs/image-20260601205418023.png)
-
-![image-20260601205459915](imgs/image-20260601205459915.png)
+![image-20260610180241437](imgs/image-20260610180241437.png)
 
 
 
-
-
-![image-20260601205430721](imgs/image-20260601205430721.png)
-
-
-
-![image-20260601205253018](imgs/image-20260601205253018.png)
+![image-20260610180258935](imgs/image-20260610180258935.png)
 
 
 
-![image-20260601205312281](imgs/image-20260601205312281.png)
-
-![image-20260601205407511](imgs/image-20260601205407511.png)
-
-![image-20260601205327052](imgs/image-20260601205327052.png)
+![image-20260610180309006](imgs/image-20260610180309006.png)
 
 
 
-![image-20260601205357708](imgs/image-20260601205357708.png)
+![image-20260610180333320](imgs/image-20260610180333320.png)
 
 
+
+![image-20260610180339253](imgs/image-20260610180339253.png)
+
+
+
+![image-20260610180357105](imgs/image-20260610180357105.png)
+
+![image-20260610180402155](imgs/image-20260610180402155.png)
+
+
+
+![image-20260610180413767](imgs/image-20260610180413767.png)
+
+
+
+![image-20260610180419439](imgs/image-20260610180419439.png)
+
+![image-20260610180227319](imgs/image-20260610180227319.png)
 
 
 
@@ -112,137 +115,24 @@
 | **口令爆破** | 16+ 协议弱口令（SSH / FTP / MySQL / MSSQL / RDP / Redis / MongoDB / PostgreSQL / SMB / Telnet / VNC / Memcached / Elasticsearch / Kerberos / SMTP / POP3） |
 | **Dumpall** | .DS_Store / .git / .svn 泄漏利用与源代码恢复 |
 
-
-
-
-
-![image-20260601205538758](imgs/image-20260601205538758.png)
-
-
-
-![image-20260601205543745](imgs/image-20260601205543745.png)
-
-
-
-![image-20260601205550218](imgs/image-20260601205550218.png)
-
-
-
-![image-20260601205555189](imgs/image-20260601205555189.png)
-
-
-
-![image-20260601205602493](imgs/image-20260601205602493.png)
-
-### 3.4 应急响应
-
-| 功能 | 说明 |
-|---|---|
-| **Web日志分析** | 攻击规则匹配 + AI辅助研判 + 可疑IP统计 |
-| **流量分析** | PCAP文件解析 + 流量会话 + AI辅助分析 |
-| **Windows日志** | EVTX解析 + 内置告警规则 + 自定义规则 |
-| **Webshell检测** | 静态特征检测 + 动态行为检测 + AI辅助判断 |
-| **代码审计** | 规则扫描 + AI辅助审计 |
-
-### 3.5 数据处理（CyberChef 本地替代）
+### 3.4 数据处理（CyberChef 本地替代）
 
 **数据处理** 是 ChiXiao 的瑞士军刀模块，提供 **100+ 管道式操作**，支持拖拽串联、多步骤连续处理。
 
-#### 编码 / 解码
-
-| 操作 | 说明 |
-|---|---|
-| Base64 / Base32 / Base58 / Base62 / Base85 / Base91 | 各种进制编码 |
-| Hex / Hexdump | 十六进制与可视化Hexdump |
-| Binary / Decimal / Octal | 二/十/八进制互转 |
-| URL Encode/Decode | URL编码 |
-| HTML Entity | HTML实体编码 |
-| Unicode Escape/Unescape | Unicode转义 |
-| Quoted Printable | 邮件编码 |
-| Punycode | 域名国际化编码 |
-| 文本编解码（Text Decode/Encode） | 多种字符集转换 |
-
-#### 哈希 / 校验
-
-| 操作 | 说明 |
-|---|---|
-| MD5 / SHA1 / SHA2-256/384/512 / SHA3-256/512 | 主流哈希 |
-| BLAKE2b / BLAKE2s / BLAKE3 | BLAKE系列 |
-| GOST / Streebog | 俄罗斯哈希标准 |
-| Keccak-256 / Keccak-512 | Ethereum系 |
-| CRC-32 / Adler-32 | 校验和 |
-| HMAC SHA-256 | 消息认证 |
-| NT Hash | Windows NTLM |
-
-#### 加密 / 解密
-
-| 操作 | 说明 |
-|---|---|
-| AES / DES / 3DES / RC4 / ChaCha20 | 对称加密 |
-| XOR / ROT13 / ROT47 | 简单变换 |
-| Blowfish | 对称加密 |
-
-#### 压缩 / 解压
-
-| 操作 | 说明 |
-|---|---|
-| Gzip / Gunzip | GNU压缩 |
-| Zlib Deflate/Inflate | Deflate压缩 |
-| Bzip2 | bzip2压缩 |
-| Raw Deflate/Inflate | 原始Deflate |
-| Tar / Untar | 打包归档 |
-
-#### 文本处理
-
-| 操作 | 说明 |
-|---|---|
-| **Diff（文本对比）** | 字符级/单词级/行级高亮对比，新增绿色/删除红色 |
-| **Pattern Filter（模式过滤）** | 正则/字符串模式，去除/仅保留/替换三种模式 |
-| **Remove special chars（去除特殊字符）** | 可自定义字符集，默认预置常见特殊字符 |
-| 大小写 / _swap case_ / Reverse / Sort / Unique | 基础文本操作 |
-| Find & Replace / Regular expression | 查找替换 |
-| Split / Join with comma / Merge into one line | 行处理 |
-| Add / Remove line numbers | 行号操作 |
-| To Camel / Snake / Kebab case | 命名格式转换 |
-| Drop bytes / Take bytes | 字节截取 |
-| Pad lines / Wrap | 行填充与包裹 |
-
-#### 数据提取
-
-| 操作 | 说明 |
-|---|---|
-| Strings / Lines | 提取字符串/行 |
-| Count occurrences | 计数 |
-| Extract IP / URL / C segment / domain | 字段提取 |
-| IP Format Convert | IP格式转换（点分十进制/十进制/十六进制/八进制） |
-| Append /24 / /16 | CIDR扩展 |
-| Expand CIDR | CIDR展开 |
-
-#### 格式转换
-
-| 操作 | 说明 |
-|---|---|
-| **JSON Beautify / Minify** | JSON美化/压缩 |
-| **XML Beautify / Minify** | XML美化/压缩 |
-| **JavaScript Beautify / Minify** | JS美化/压缩 |
-| To Unix Timestamp / From Unix Timestamp | 时间戳互转 |
-| To Chinese Uppercase | 金额中文大写 |
-| Generate UUID | UUID生成 |
-| Remove / Keep Chinese | 中文过滤 |
-| Remove protocol / Remove port | URL清洗 |
-| Add http:// / Add https:// | URL协议补全 |
-| Decompose URL path | URL路径分解 |
-
-#### 特殊处理
-
-| 操作 | 说明 |
-|---|---|
-| Remove whitespace / Remove null bytes | 空白字符处理 |
-| Swap endianness | 端序转换 |
+| 分类 | 代表操作 |
+|------|----------|
+| **编码 / 解码** | Base64/32/58/62/85/91、Hex、URL Encode、HTML Entity、Unicode、Punycode |
+| **哈希 / 校验** | MD5、SHA1/2/3、BLAKE2/3、HMAC、CRC32、NT Hash |
+| **加密 / 解密** | AES、DES、3DES、RC4、ChaCha20、XOR、Blowfish |
+| **压缩 / 解压** | Gzip、Zlib、Bzip2、Raw Deflate、Tar |
+| **文本处理** | Diff 对比、Pattern Filter、大小写、排序去重、正则替换、命名格式转换 |
+| **数据提取** | IP/URL/域名/C段提取、IP 格式互转、CIDR 展开、计数统计 |
+| **格式转换** | JSON/XML/JS 美化压缩、时间戳互转、中文过滤、URL 清洗 |
+| **特殊处理** | 空白字符清洗、端序转换 |
 
 ---
 
-### 3.6 JWT 攻防台
+### 3.5 JWT 攻防台
 
 | 功能 | 说明 |
 |---|---|
@@ -253,35 +143,7 @@
 
 ---
 
-## 4. 产品特点
-
-### 统一入口
-把常用安全工具、扫描能力和辅助页面放到统一桌面壳中，减少工具碎片化。
-
-### 本地优先
-以本地运行、本地数据和本地配置为核心，避免把日常工作流过度依赖浏览器标签页或云端面板。
-
-### 模块化工作流
-从资产摸排、指纹识别、漏洞验证，到流量/日志/代码分析，形成连续闭环。
-
-### 数据处理管道（Pipeline）
-数据处理模块支持拖拽操作串联，多步骤连续执行，每一步结果自动接力到下一步，减少复制粘贴。
-
-### 环境变量统一管理
-支持集中维护 Python、Java、代理、空间测绘密钥与 AI 服务配置，降低切换成本。
-
-### AI 辅助但不绑死 AI
-AI 模型配置可独立维护、切换与测试，适合作为规则研判与分析的辅助能力，而非唯一依赖。
-
-### 单实例运行
-内置单实例锁，防止多开导致端口冲突或数据异常。
-
-### 安全存储
-敏感信息（API Key、Token、Cookie）AES 加密存储，本地 SQLite 数据库持久化。
-
----
-
-## 5. 快捷键
+## 4. 快捷键
 
 | 快捷键 | 功能 |
 |---|---|
@@ -290,7 +152,7 @@ AI 模型配置可独立维护、切换与测试，适合作为规则研判与�
 
 ---
 
-## 6. 顶部栏与代理说明
+## 5. 顶部栏与代理说明
 
 ### 顶部栏功能
 - 应用品牌与窗口控制
@@ -308,7 +170,7 @@ AI 模型配置可独立维护、切换与测试，适合作为规则研判与�
 
 ---
 
-## 7. 技术架构
+## 6. 技术架构
 
 ### 前端
 - Vue 3 + Vite + TypeScript
@@ -351,7 +213,7 @@ ChiXiao/
 
 ---
 
-## 8. 快速开始
+## 7. 快速开始
 
 ### 运行环境
 - Windows 10/11 x64
@@ -370,7 +232,7 @@ ChiXiao/
 
 ---
 
-## 9. 开发环境
+## 8. 开发环境
 
 ### 依赖要求
 - Go：1.24+
@@ -381,55 +243,107 @@ ChiXiao/
 
 ---
 
-## 10. 更新日志
+## 9. 更新日志
 
-### v2.x 新增功能
 
-- **数据处理（CyberChef 增强版）**
-  - 字符级 Diff 对比（`<ins>`/`<del>` HTML 高亮，绿色新增/红色删除）
-  - 单词级 / 行级 Diff 对比粒度
-  - **Pattern Filter 模式过滤**（正则/字符串 × 去除/仅保留/替换）
-  - **Remove special chars 可自定义字符集**
-  - IP Format Convert 下拉框中文化（点分十进制/十进制/十六进制/八进制）
-  - JSON / XML / JavaScript 美化与压缩（带示例输入自动填充）
-  - 时间日期操作自动填充示例输入
-  - **输出接力按钮**（一键将输出推入输入区）
-  - 左侧分类栏默认折叠
 
-- **左侧导航重构**
-  - 8 大模块统一入口
-  - 别名搜索支持（如输入"企业查询"直达目标页面）
-  - 分类列表 / 收藏区默认折叠
+###  v2.2
 
-- **JWT 攻防台**
-  - 更名（JWT工具 → JWT攻防台）
-  - 移除使用说明和算法标签，界面更简洁
+1. 优化网络归属中IP138反查功能bug
+2. 本项目仍在持续迭代中，Bug 一定不少，欢迎在 [Issues](https://github.com/z50n6/ChiXiao/issues) 中提出。
 
-- **工具箱增强**
-  - 工具市场安装模态框
-  - 批量安装支持
+### v2.1
 
-- **口令爆破（Brute Crack）**
-  - 支持 16+ 协议弱口令检测
-  - 协议覆盖：SSH / FTP / MySQL / MSSQL / RDP / Redis / MongoDB / PostgreSQL / SMB / Telnet / VNC / Memcached / Elasticsearch / Kerberos / SMTP / POP3
+> **信息收集 + 指纹引擎全面升级，服务检测与 Git 管家重构**
 
-- **AK 泄露检测（Credential Lab）**
-  - 覆盖阿里云 / 腾讯云 / 百度云 / AWS / GCP / Azure / Google Maps  等 
+**新功能 / 能力增强**
 
-- **应急响应模块**
-  - Web 日志分析（攻击规则 + AI 辅助研判）
-  - PCAP 流量分析（会话 + 时间线 + AI 辅助）
-  - Windows 日志 EVTX 解析（内置规则 + 自定义规则）
-  - Webshell 检测（静态 + 动态 + AI 辅助）
-  - 代码审计（规则 + AI 辅助）
+- **Naabu + HTTPX 指纹引擎** — 三层渐进式识别：fingerprintx（TCP 服务指纹）+ Wappalyzer（技术栈）+ EHole finger.json（900+ CMS 规则），大幅提升 Web 资产识别精度
+- **网络归属** — IP138 反查接入 chromedp 渲染引擎，解决「当前解析」列数据缺失；IP 归属地支持在线 / 本地双模查询
+- **服务未授权检测** — 补齐至 14 协议（Redis / MySQL / PostgreSQL / MongoDB / SSH / FTP / Elasticsearch / RabbitMQ / SQL Server / SMB / WMI / MQTT / Oracle / Zookeeper），结果深度对齐来源项目
 
-- **存储与安全**
-  - 从 JSON 迁移到 SQLite
-  - 敏感字段 AES 加密存储
-  - 单实例运行锁
+**重构 / 优化**
+
+- **Git 管家** — 数据存储从 JSON Blob 迁移到结构化 SQLite 表，并发采集元数据，UI 颜色区分仓库状态
+- **备忘录** — UI 完全重写
+- **工具箱** — 修复拖拽导入与图标稳定性，完善路径选择与启动逻辑
+- 企业信息支持 JSON 导出，公众号数据获取优化
+- 小程序反编译、Java 编码、杀软识别、请求重放（Repeater）多项功能优化
+- 前端界面收敛，统一 Naive UI 主题实现，桌面端支持后台运行
+
+**Bug 修复**
+
+- 修复口令爆破 Redis / HTTP / PostgreSQL 协议致命 Bug 及下拉框布局问题
 
 ---
 
-## 12. License
+### v2.0
+
+> **7 大模块 + 100+ CyberChef 管道 + 16 协议口令爆破**
+
+**新功能**
+
+- **数据处理（CyberChef 本地替代）** — 100+ 管道式操作，支持拖拽串联，涵盖编码解码、哈希校验、加解密、压缩、文本处理、数据提取、格式转换
+- **口令爆破** — 16 协议弱口令检测（SSH / FTP / MySQL / MSSQL / RDP / Redis / MongoDB / PostgreSQL / SMB / Telnet / VNC / Memcached / Elasticsearch / Kerberos / SMTP / POP3）
+- **AK 泄露检测** — 覆盖阿里云 / 腾讯云 / 百度云 / AWS / GCP / Azure / Google Maps 等主流云平台
+- **JWT 攻防台** — Token 解析、签名验证、None 算法攻击、密钥混淆
+- **左侧导航重构** — 7 大模块统一入口，Ctrl+K 全局搜索支持别名（如输入"企业查询"直达企业信息页）
+- **工具市场** — GitHub Release 一键安装、直链下载、自动识别入口文件并入库到启动器
+
+**基础设施**
+
+- 本地 SQLite + AES 加密存储敏感字段
+- 单实例运行锁，防止多开导致数据异常
+- 全局代理开关与环境变量统一管理
+
+---
+
+## 10. 问题反馈
+
+本项目仍在持续迭代中，Bug 一定不少，欢迎在 [Issues](https://github.com/z50n6/ChiXiao/issues) 中提出。
+
+### 提交 Issue 前
+
+- **先搜索已有 Issues**，避免重复提交
+- 一个 Issue 只描述一个问题，不要把多个不相关的问题混在一起
+
+### Bug 报告请尽量包含
+
+```
+【环境】
+- ChiXiao 版本：v2.x
+- Windows 版本：Win10 / Win11
+- 是否开启代理：是 / 否
+
+【问题现象】
+清晰描述你做了什么操作、预期结果是什么、实际发生了什么。
+如有报错弹窗，请截图或复制错误信息。
+
+【复现步骤】
+1. 打开 xxx 功能
+2. 输入 xxx
+3. 点击 xxx
+4. 观察到 xxx
+
+【附加信息】
+- 截图 / 录屏
+- 相关日志
+```
+
+### 功能建议
+
+也欢迎提 Feature Request，但请注意 ChiXiao 的定位是**本地化的红队安全工作台**，不会做成在线 SaaS 或商业产品。
+
+- 描述你希望的功能是什么
+- 它在你的工作流中解决了什么问题
+- 如果可以，附上参考实现或截图
+
+---
+
+不保证每个问题都能立刻修，但每个 Issue 都会被认真看。
+
+---
+
+## 11. License
 
 MIT
